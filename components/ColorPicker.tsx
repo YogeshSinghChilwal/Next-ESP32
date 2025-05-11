@@ -1,13 +1,13 @@
 "use client";
 
-import { ChromePicker } from "react-color";
+import { ChromePicker, RGBColor } from "react-color";
 import { useState } from "react";
 
 export default function ColorPicker() {
   const [color, setColor] = useState({ r: 0, g: 0, b: 0 });
 
-  // @ts-ignore
-  const sendColor = async (rgb) => {
+  
+  const sendColor = async (rgb: RGBColor) => {
     try {
       await fetch(`http://192.168.1.7/setColor?r=${rgb.r}&g=${rgb.g}&b=${rgb.b}`);
     } catch (err) {
